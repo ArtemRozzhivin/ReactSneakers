@@ -1,29 +1,31 @@
 import { Routes, Route } from 'react-router-dom';
-import Cart from './components/Cart';
-import CartItemSneakers from './components/CartItemSneakers';
-import Header from './components/Header';
-import ItemSneakers from './components/ItemSneakers';
 import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import Purchase from './pages/Purchase';
-import Button from './ui/Button';
-import Input from './ui/Input';
+import Marks from './pages/Marks';
+import Provider from 'react-redux/es/components/Provider';
+import { store } from './redux/store';
 
 const App = () => {
   return (
-    <div className="bg-white rounded-lg md:w-wrapper mx-auto shadow-lg">
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/purchase" element={<Purchase />} />
-        </Route>
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <div className="bg-white rounded-lg md:w-wrapper mx-auto shadow-lg">
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            {/* <Route path="/cart" element={<Cart />} /> */}
+            <Route path="/" element={<Home />} />
+            <Route path="/purchase" element={<Purchase />} />
+            <Route path="/liked" element={<Marks />} />
+          </Route>
+        </Routes>
+      </div>
+    </Provider>
   );
 };
 
 export default App;
 
+//сверстать блоки
 //розложить все що можна на компоненти
 //подключить реакт роутер
 // подключить редакс

@@ -1,4 +1,6 @@
 import React from 'react';
+import CartPurchase from '../components/Cart';
+import ItemList from '../components/ItemList';
 import ItemSneakers from '../components/ItemSneakers';
 import Input from '../ui/Input';
 
@@ -29,15 +31,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-10">
-        <ItemSneakers />
-        <ItemSneakers />
-        <ItemSneakers />
-        <ItemSneakers />
-        <ItemSneakers />
-        <ItemSneakers />
-        <ItemSneakers />
-      </div>
+      <ItemList />
     </div>
   );
 };

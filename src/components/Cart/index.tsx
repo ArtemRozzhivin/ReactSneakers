@@ -1,11 +1,11 @@
 import React from 'react';
-import Button from '../ui/Button';
-import CartItemSneakers from './CartItemSneakers';
+import Button from '../../ui/Button';
+import CartItemSneakers from '../CartItemSneakers';
 
 const Cart: React.FC = () => {
   return (
     <div>
-      <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+      <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-10"></div>
       <div className="flex flex-col bg-white absolute right-0 w-96 h-full z-20 p-8">
         <h4 className="font-bold text-2xl leading-7 mb-7">Корзина</h4>
 
@@ -35,7 +35,7 @@ const Cart: React.FC = () => {
         </div>
 
         <div className="relative">
-          <Button buy>Оформити замовлення</Button>
+          <Button primary>Оформити замовлення</Button>
           <svg
             className="absolute top-6 right-7"
             width="16"
@@ -46,16 +46,16 @@ const Cart: React.FC = () => {
             <path
               d="M1 7H14.7143"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               d="M8.71436 1L14.7144 7L8.71436 13"
               stroke="white"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>
