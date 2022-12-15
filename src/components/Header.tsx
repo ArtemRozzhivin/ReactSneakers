@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
 
-const Header: React.FC = () => {
+type HeaderProps = {
+  onClickCart: (visible: boolean) => void;
+};
+
+const Header: React.FC<HeaderProps> = ({ onClickCart }) => {
   return (
     <div className="flex justify-between items-center p-10 border-b-2">
       <Link to="/" className="flex items-center">
@@ -14,7 +18,7 @@ const Header: React.FC = () => {
       </Link>
       <ul className="flex w-auto items-center">
         <li className="flex items-center">
-          <Button className="bg-slate-300 rounded-xl px-3 py-2">
+          <Button onClick={() => onClickCart(true)} className="bg-slate-300 rounded-xl px-3 py-2">
             <svg
               className="inline pr-1 border-r-2 border-gray-500"
               width="28"

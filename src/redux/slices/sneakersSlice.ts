@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
 
-type Sneakers = {
+export type Sneakers = {
   id: string;
   imageUrl: string;
   price: number;
@@ -28,7 +28,7 @@ const initialState: SneakersSliceType = {
 
 export const fetchSneakers = createAsyncThunk('users/fetchByIdStatus', async () => {
   const { data } = await axios.get('https://63975ac377359127a0351817.mockapi.io/sneakers');
-  return data;
+  return data as Sneakers[];
 });
 
 export const sneakersSlice = createSlice({

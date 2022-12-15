@@ -6,11 +6,13 @@ type ButtonProps = {
   small?: boolean;
   className?: string;
   children: string | any;
+  onClick?: () => void;
 };
 
-const Button: React.FC<ButtonProps> = ({ children, primary, small, className }) => {
+const Button: React.FC<ButtonProps> = ({ onClick, children, primary, small, className }) => {
   return (
     <button
+      onClick={onClick}
       className={cx(
         'hover:brightness-75 transition-all',
         {

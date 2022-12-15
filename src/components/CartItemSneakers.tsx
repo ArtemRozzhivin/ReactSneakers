@@ -1,15 +1,29 @@
 import React from 'react';
 import Button from '../ui/Button';
 
-const CartItemSneakers: React.FC = () => {
+type CartItemSneakersProps = {
+  id: string;
+  imageUrl: string;
+  price: number;
+  rating: number;
+  title: string;
+};
+
+const CartItemSneakers: React.FC<CartItemSneakersProps> = ({
+  id,
+  imageUrl,
+  price,
+  rating,
+  title,
+}) => {
   return (
     <div className="border rounded-3xl flex items-center justify-between p-5">
       <div className="mr-5 mb-2">
-        <img width={70} height={70} src="assets/7.png" alt="Sneakers" />
+        <img width={70} height={70} src={imageUrl} alt="Sneakers" />
       </div>
       <div className="grow">
-        <p>Nike Air Max 270</p>
-        <p className="font-bold mt-2">3 655 грн</p>
+        <p>{title}</p>
+        <p className="font-bold mt-2">{price} грн</p>
       </div>
       <div>
         <Button small>
