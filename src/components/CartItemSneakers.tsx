@@ -1,4 +1,6 @@
 import React from 'react';
+import { removeItemCart } from '../redux/slices/cartSlice';
+import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 
 type CartItemSneakersProps = {
@@ -16,6 +18,21 @@ const CartItemSneakers: React.FC<CartItemSneakersProps> = ({
   rating,
   title,
 }) => {
+  const dispatch = useAppDispatch();
+
+  const removeItem = () => {
+    const item = {
+      id,
+      imageUrl,
+      price,
+      rating,
+      title,
+    };
+    if (window.confirm('Видалити товар з корзини?')) {
+      dispatch(removeItemCart(item));
+    }
+  };
+
   return (
     <div className="border rounded-3xl flex items-center justify-between p-5">
       <div className="mr-5 mb-2">
@@ -23,10 +40,13 @@ const CartItemSneakers: React.FC<CartItemSneakersProps> = ({
       </div>
       <div className="grow">
         <p>{title}</p>
-        <p className="font-bold mt-2">{price} грн</p>
+        <div className="flex items-center mt-2">
+          <p className="font-bold">{price} грн</p>
+          <span className="ml-5">x2</span>
+        </div>
       </div>
       <div>
-        <Button small>
+        <Button onClick={removeItem} small>
           <svg
             width="10"
             height="10"

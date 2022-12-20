@@ -1,7 +1,11 @@
 import React from 'react';
 import Button from '../../ui/Button';
 
-const CartBought: React.FC = () => {
+type CartBought = {
+  setVisibleCart: (open: boolean) => void;
+};
+
+const CartBought: React.FC<CartBought> = ({ setVisibleCart }) => {
   return (
     <div>
       <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-10"></div>
@@ -15,7 +19,9 @@ const CartBought: React.FC = () => {
             Ваше замовлення #18 скоро буде передано кур'єрській доставці.
           </div>
           <div className="relative w-full">
-            <Button primary>Повернутися назад</Button>
+            <Button onClick={() => setVisibleCart(false)} primary>
+              Повернутися назад
+            </Button>
             <svg
               className="absolute top-6 left-8"
               width="16"
