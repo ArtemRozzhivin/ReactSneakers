@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { clearAllItem, Sneakers } from '../../redux/slices/cartSlice';
+import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
 import { useAppDispatch } from '../../redux/store';
 import Button from '../../ui/Button';
 import CartItemSneakers from '../CartItemSneakers';
@@ -8,7 +8,7 @@ import CartBought from './CartBought';
 import CartEmpty from './CartEmpty';
 
 type CartProps = {
-  items: Sneakers[];
+  items: CartSneakers[];
   totalPrice: number;
   totalCount: number;
   tax: number;

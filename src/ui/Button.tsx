@@ -5,6 +5,7 @@ type ButtonProps = {
   primary?: boolean;
   primaryRed?: boolean;
   small?: boolean;
+  disabled?: boolean;
   className?: string;
   children: string | any;
   onClick?: () => void;
@@ -15,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   primary,
   primaryRed,
+  disabled,
   small,
   className,
 }) => {
@@ -29,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
           'px-5 w-full font-semibold leading-5 text-center py-5 bg-red-500 text-white rounded-3xl hover:brightness-110 active:brightness-100 transition-all':
             primaryRed,
           'p-2 rounded-lg border inline-block hover:brightness-75 transition-all': small,
+          'bg-black': disabled,
         },
         className,
       )}>

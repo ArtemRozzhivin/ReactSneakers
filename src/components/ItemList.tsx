@@ -19,7 +19,7 @@ const ItemList: React.FC = () => {
   const { sneakers, status } = useSelector(selectSneakers);
 
   const addItemToCart = (item: ItemSneakers) => {
-    dispatch(addItemCart(item));
+    dispatch(addItemCart({ ...item, count: 1 }));
   };
 
   useEffect(() => {

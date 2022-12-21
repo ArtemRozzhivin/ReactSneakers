@@ -3,16 +3,17 @@ import axios from 'axios';
 import { stat } from 'fs';
 import { RootState } from '../store';
 
-export type Sneakers = {
+export type CartSneakers = {
   id: string;
   imageUrl: string;
   price: number;
   rating: number;
   title: string;
+  count: number;
 };
 
 interface cartSliceType {
-  items: Sneakers[];
+  items: CartSneakers[];
   totalCount: number;
   totalPrice: number;
   tax: number;
@@ -25,28 +26,52 @@ const initialState: cartSliceType = {
   tax: 0,
 };
 
-const toCountTax = (sum: number, rate: number) => {
+const calcTax = (sum: number, rate: number = 5) => {
   const res = (rate / 100) * sum;
   return Number(res.toFixed(2));
+};
+
+const calcTotalPrice = (items: CartSneakers[]) => {
+  return items.reduce((sum, obj) => obj.count * obj.price + sum, 0);
+};
+
+const calcTotalCount = (items: CartSneakers[]) => {
+  return items.reduce((sum, obj) => obj.count + sum, 0);
 };
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItemCart: (state, action: PayloadAction<Sneakers>) => {
-      state.items.push({ ...action.payload });
-      state.totalPrice += action.payload.price;
-      state.totalCount += 1;
+    addItemCart: (state, action: PayloadAction<CartSneakers>) => {
+      const item = state.items.find((obj) => obj.id === action.payload.id);
+      if (item) {
+        item.count += 1;
+      } else {
+        state.items.push({ ...action.payload });
+      }
 
-      state.tax = toCountTax(state.totalPrice, 5);
+      state.totalPrice = calcTotalPrice(state.items);
+      state.totalCount = calcTotalCount(state.items);
+      state.tax = calcTax(state.totalPrice);
     },
-    removeItemCart: (state, action: PayloadAction<Sneakers>) => {
+    minusItemCart: (state, action: PayloadAction<{ id: string }>) => {
+      const item = state.items.find((obj) => obj.id === action.payload.id);
+
+      if (item && item.count > 1) {
+        item.count--;
+
+        state.totalPrice = calcTotalPrice(state.items);
+        state.totalCount = calcTotalCount(state.items);
+        state.tax = calcTax(state.totalPrice);
+      }
+    },
+    removeItemCart: (state, action: PayloadAction<{ id: string }>) => {
       state.items = state.items.filter((obj) => obj.id !== action.payload.id);
 
-      state.totalPrice -= action.payload.price;
-      state.totalCount -= 1;
-      state.tax = toCountTax(state.totalPrice, 5);
+      state.totalPrice = calcTotalPrice(state.items);
+      state.totalCount = calcTotalCount(state.items);
+      state.tax = calcTax(state.totalPrice);
     },
     clearAllItem: (state) => {
       state.items = [];
@@ -59,6 +84,6 @@ export const cartSlice = createSlice({
 
 export const selectCartSneakers = (state: RootState) => state.cart;
 
-export const { addItemCart, clearAllItem, removeItemCart } = cartSlice.actions;
+export const { addItemCart, minusItemCart, clearAllItem, removeItemCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

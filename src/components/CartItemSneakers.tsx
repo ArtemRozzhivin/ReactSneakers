@@ -1,36 +1,43 @@
 import React from 'react';
-import { removeItemCart } from '../redux/slices/cartSlice';
+import {
+  addItemCart,
+  CartSneakers,
+  minusItemCart,
+  removeItemCart,
+} from '../redux/slices/cartSlice';
 import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 
-type CartItemSneakersProps = {
-  id: string;
-  imageUrl: string;
-  price: number;
-  rating: number;
-  title: string;
-};
-
-const CartItemSneakers: React.FC<CartItemSneakersProps> = ({
+const CartItemSneakers: React.FC<CartSneakers> = ({
   id,
   imageUrl,
   price,
   rating,
   title,
+  count,
 }) => {
   const dispatch = useAppDispatch();
 
   const removeItem = () => {
+    if (window.confirm('Видалити товар з корзини?')) {
+      dispatch(removeItemCart({ id }));
+    }
+  };
+
+  const plusItem = () => {
     const item = {
       id,
       imageUrl,
       price,
       rating,
       title,
+      count,
     };
-    if (window.confirm('Видалити товар з корзини?')) {
-      dispatch(removeItemCart(item));
-    }
+    dispatch(addItemCart(item));
+  };
+
+  const minusItem = () => {
+    dispatch(minusItemCart({ id }));
   };
 
   return (
@@ -38,11 +45,40 @@ const CartItemSneakers: React.FC<CartItemSneakersProps> = ({
       <div className="mr-5 mb-2">
         <img width={70} height={70} src={imageUrl} alt="Sneakers" />
       </div>
-      <div className="grow">
+      <div className="grow mr-3">
         <p>{title}</p>
-        <div className="flex items-center mt-2">
-          <p className="font-bold">{price} грн</p>
-          <span className="ml-5">x2</span>
+        <div className="flex items-center justify-between">
+          <div>{price} грн</div>
+          <div className="flex items-center">
+            <div className="flex items-center">
+              <Button disabled onClick={minusItem} small>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12h-15" />
+                </svg>
+              </Button>
+              <div className="mx-2">{count}</div>
+              <Button onClick={plusItem} small>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  width="12"
+                  height="12"
+                  viewBox="0 0 24 24"
+                  strokeWidth="1.5"
+                  stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </Button>
+            </div>
+            <div className="font-bold ml-5">{price} грн</div>
+          </div>
         </div>
       </div>
       <div>
