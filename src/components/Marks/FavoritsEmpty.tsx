@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../../ui/Button';
 
-const MarksEmpty = () => {
+const FavoritsEmpty = () => {
   return (
     <div className="flex flex-col h-screen justify-center items-center text-center">
       <div className="flex justify-center mb-6">
@@ -9,7 +10,7 @@ const MarksEmpty = () => {
       </div>
       <h3 className="font-semibold text-2xl leading-7 text-center mb-2">Закладок немає</h3>
       <div className="opacity-40 leading-6 mb-10">Ви нічого не додавали до закладок.</div>
-      <div className="relative w-1/3">
+      <Link to="/" className="relative w-1/3">
         <Button primary>Повернутися назад</Button>
         <svg
           className="absolute top-6 left-8"
@@ -33,9 +34,9 @@ const MarksEmpty = () => {
             strokeLinejoin="round"
           />
         </svg>
-      </div>
+      </Link>
     </div>
   );
 };
 
-export default MarksEmpty;
+export default FavoritsEmpty;

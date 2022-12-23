@@ -21,15 +21,26 @@ interface SneakersSliceType {
   status: Status;
 }
 
+type fetchSneakersProps = {
+  searchValue: string;
+};
+
 const initialState: SneakersSliceType = {
   sneakers: [],
   status: Status.LOADING,
 };
 
-export const fetchSneakers = createAsyncThunk('users/fetchByIdStatus', async () => {
-  const { data } = await axios.get('https://63975ac377359127a0351817.mockapi.io/sneakers');
-  return data as Sneakers[];
-});
+export const fetchSneakers = createAsyncThunk(
+  'users/fetchByIdStatus',
+  async ({ searchValue }: fetchSneakersProps) => {
+    const { data } = await axios.get('https://63975ac377359127a0351817.mockapi.io/sneakers');
+
+    const searchingSneakers = data.filter((obj: Sneakers) =>
+      obj.title.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+    return searchingSneakers as Sneakers[];
+  },
+);
 
 export const sneakersSlice = createSlice({
   name: 'sneakers',

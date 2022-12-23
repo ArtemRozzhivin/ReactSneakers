@@ -51,7 +51,7 @@ const CartItemSneakers: React.FC<CartSneakers> = ({
           <div>{price} грн</div>
           <div className="flex items-center">
             <div className="flex items-center">
-              <Button disabled onClick={minusItem} small>
+              <Button disabled={count <= 1} onClick={minusItem} small>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -77,7 +77,7 @@ const CartItemSneakers: React.FC<CartSneakers> = ({
                 </svg>
               </Button>
             </div>
-            <div className="font-bold ml-5">{price} грн</div>
+            <div className="font-bold ml-5">{count * price} грн</div>
           </div>
         </div>
       </div>

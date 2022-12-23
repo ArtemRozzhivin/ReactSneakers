@@ -1,5 +1,7 @@
+import favoritReducer from './slices/favoritSlice';
 import sneakersReducer from './slices/sneakersSlice';
 import cartReducer from './slices/cartSlice';
+import filterReducer from './slices/filterSlice';
 import { configureStore, createReducer } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 
@@ -7,6 +9,8 @@ export const store = configureStore({
   reducer: {
     sneakers: sneakersReducer,
     cart: cartReducer,
+    filter: filterReducer,
+    favorit: favoritReducer,
   },
 });
 
