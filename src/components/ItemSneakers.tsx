@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { selectCartItemById } from '../redux/slices/cartSlice';
 import { selectFavoritItemById } from '../redux/slices/favoritSlice';
 import { Sneakers } from '../redux/slices/sneakersSlice';
 import { useAppDispatch } from '../redux/store';
@@ -25,9 +26,8 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
   addItemToCart,
   addItemToFavorits,
 }) => {
+  const itemCart = useSelector(selectCartItemById(id));
   const itemFavorit = useSelector(selectFavoritItemById(id));
-
-  const [visibleAddToCart, setVisibleAddToCart] = useState(false);
 
   const createItemObj = () => {
     const item = {
@@ -41,7 +41,6 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
   };
 
   const addToCart = () => {
-    setVisibleAddToCart(true);
     addItemToCart(createItemObj());
   };
 
@@ -94,11 +93,11 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
         </div>
         <div>
           <Button
-            disabled={false}
-            className={visibleAddToCart ? 'bg-green-400 disabled:opacity-100' : ''}
+            disabled={itemCart && true}
+            className={itemCart ? 'bg-green-400 disabled:opacity-100' : ''}
             onClick={addToCart}
             small>
-            {visibleAddToCart ? (
+            {itemCart ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

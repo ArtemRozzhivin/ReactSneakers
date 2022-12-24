@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       className={cx(
-        'hover:brightness-75 transition-all disabled:pointer-events-none disabled:opacity-50',
+        'hover:brightness-75 transition-all disabled:pointer-events-none ',
         {
           'px-10 w-full font-semibold leading-5 text-center py-5 bg-green-500 text-white rounded-3xl hover:brightness-110 active:brightness-100 transition-all':
             primary,

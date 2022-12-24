@@ -1,13 +1,19 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
+
+export type sortValueType = {
+  sort: string;
+  name: string;
+};
 
 interface filterSliceType {
   searchValue: string;
+  sortValue: sortValueType;
 }
 
 const initialState: filterSliceType = {
   searchValue: '',
+  sortValue: { sort: 'popular', name: 'за популярністю' },
 };
 
 export const filterSlice = createSlice({
@@ -17,11 +23,14 @@ export const filterSlice = createSlice({
     setSearching: (state, action: PayloadAction<string>) => {
       state.searchValue = action.payload;
     },
+    setSorting: (state, action: PayloadAction<sortValueType>) => {
+      state.sortValue = action.payload;
+    },
   },
 });
 
 export const selectFilters = (state: RootState) => state.filter;
 
-export const { setSearching } = filterSlice.actions;
+export const { setSearching, setSorting } = filterSlice.actions;
 
 export default filterSlice.reducer;

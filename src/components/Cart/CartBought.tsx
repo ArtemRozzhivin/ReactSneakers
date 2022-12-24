@@ -8,8 +8,8 @@ type CartBought = {
 const CartBought: React.FC<CartBought> = ({ setVisibleCart }) => {
   return (
     <div>
-      <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-10"></div>
-      <div className="flex flex-col bg-white absolute right-0 w-2/5 h-full z-20 p-8">
+      <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-20"></div>
+      <div className="flex flex-col bg-white absolute right-0 w-2/5 h-full z-30 p-8">
         <h4 className="font-bold text-2xl leading-7 mb-7">Корзина</h4>
 
         <div className="flex flex-col grow justify-center items-center w-full">

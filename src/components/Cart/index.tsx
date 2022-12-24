@@ -40,8 +40,8 @@ const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisi
     <div>
       {items.length ? (
         <div>
-          <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-10 transition-all"></div>
-          <div className="flex flex-col bg-white absolute right-0 w-2/5 h-full z-20 p-5">
+          <div className="absolute top-0 right-0 w-full h-full bg-black opacity-50 z-20 transition-all"></div>
+          <div className="flex flex-col bg-white absolute right-0 w-2/5 h-full z-30 p-5">
             <div className="flex justify-between items-center mb-7">
               <div>
                 <Button onClick={() => setVisibleCart(false)} small>
