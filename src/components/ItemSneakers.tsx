@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectFavoritItemById } from '../redux/slices/favoritSlice';
 import { Sneakers } from '../redux/slices/sneakersSlice';
+import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 
 type ItemSneakersProps = {
@@ -22,8 +25,9 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
   addItemToCart,
   addItemToFavorits,
 }) => {
+  const itemFavorit = useSelector(selectFavoritItemById(id));
+
   const [visibleAddToCart, setVisibleAddToCart] = useState(false);
-  const [visibleAddToFavorit, setVisibleAddToFavorit] = useState(false);
 
   const createItemObj = () => {
     const item = {
@@ -42,7 +46,6 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
   };
 
   const addToFavorits = () => {
-    setVisibleAddToFavorit(!visibleAddToFavorit);
     addItemToFavorits(createItemObj());
   };
 
@@ -51,9 +54,9 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
       <div className="relative">
         <Button
           onClick={addToFavorits}
-          className={visibleAddToFavorit ? 'bg-pink-200 absolute' : 'absolute'}
+          className={itemFavorit ? 'bg-pink-200 absolute' : 'absolute'}
           small>
-          {visibleAddToFavorit ? (
+          {itemFavorit ? (
             <svg
               width="15"
               height="14"
