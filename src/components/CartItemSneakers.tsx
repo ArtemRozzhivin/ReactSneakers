@@ -51,7 +51,11 @@ const CartItemSneakers: React.FC<CartSneakers> = ({
           <div>{price} грн</div>
           <div className="flex items-center">
             <div className="flex items-center">
-              <Button disabled={count <= 1} onClick={minusItem} small>
+              <Button
+                disabled={count <= 1}
+                onClick={minusItem}
+                className="disabled:opacity-50"
+                small>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -1,6 +1,4 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { stat } from 'fs';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export type CartSneakers = {
@@ -17,6 +15,7 @@ interface cartSliceType {
   totalCount: number;
   totalPrice: number;
   tax: number;
+  visibleCart: boolean;
 }
 
 const initialState: cartSliceType = {
@@ -24,6 +23,7 @@ const initialState: cartSliceType = {
   totalCount: 0,
   totalPrice: 0,
   tax: 0,
+  visibleCart: false,
 };
 
 const calcTax = (sum: number, rate: number = 5) => {
@@ -79,6 +79,9 @@ export const cartSlice = createSlice({
       state.totalCount = 0;
       state.tax = 0;
     },
+    setVisibleCart: (state, action: PayloadAction<boolean>) => {
+      state.visibleCart = action.payload;
+    },
   },
 });
 
@@ -86,6 +89,7 @@ export const selectCartItems = (state: RootState) => state.cart;
 export const selectCartItemById = (id: string) => (state: RootState) =>
   state.cart.items.find((obj) => obj.id === id);
 
-export const { addItemCart, minusItemCart, clearAllItem, removeItemCart } = cartSlice.actions;
+export const { addItemCart, minusItemCart, clearAllItem, removeItemCart, setVisibleCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,12 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { MouseEventClick } from '../@types/types';
 import { selectFilters, setSorting, sortValueType } from '../redux/slices/filterSlice';
 import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
-
-type PopupClick = MouseEvent & {
-  path: Node[];
-};
 
 type SortPopupProps = {
   sortValue: sortValueType;
@@ -25,7 +22,7 @@ const SortPopup: React.FC<SortPopupProps> = ({ sortValue }) => {
 
   useEffect(() => {
     const hideSortPopup = (event: MouseEvent) => {
-      const _event = event as PopupClick;
+      const _event = event as MouseEventClick;
       if (sortRef.current && !_event.path.includes(sortRef.current)) {
         setVisiblePopup(false);
       }

@@ -3,22 +3,22 @@ import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import Cart from '../components/Cart';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../redux/slices/cartSlice';
+import { selectCartItems, setVisibleCart } from '../redux/slices/cartSlice';
+import { useAppDispatch } from '../redux/store';
 
 const MainLayout: React.FC = () => {
-  const dispatch = useDispatch();
-  const { items, totalPrice, totalCount, tax } = useSelector(selectCartItems);
-  const [visibleCart, setVisibleCart] = useState(false);
+  const dispatch = useAppDispatch();
+  const { items, totalPrice, totalCount, tax, visibleCart } = useSelector(selectCartItems);
 
   const onClickVisibleCart = (visible: boolean) => {
-    setVisibleCart(visible);
+    dispatch(setVisibleCart(visible));
   };
 
   return (
     <div>
       {visibleCart && (
         <Cart
-          setVisibleCart={setVisibleCart}
+          setVisibleCart={onClickVisibleCart}
           items={items}
           totalPrice={totalPrice}
           totalCount={totalCount}
