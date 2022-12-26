@@ -24,7 +24,6 @@ const App = () => {
 
 export default App;
 
-//зробити сортування
 // connect react-motion
 // зробити сторінку .купляні.
 // скелетон на ітем

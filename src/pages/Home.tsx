@@ -16,8 +16,8 @@ const Home: React.FC = () => {
   const { searchValue, sortValue } = useSelector(selectFilters);
 
   useEffect(() => {
-    dispatch(fetchSneakers({ searchValue }));
-  }, [searchValue]);
+    dispatch(fetchSneakers({ searchValue, sortValue }));
+  }, [searchValue, sortValue]);
 
   return (
     <div className="p-10">

@@ -11,20 +11,19 @@
     "imageUrl": "https://i.imgur.com/gEF6hJM.png",
     "title": "Nike Air Max 270",
     "price": 7585,
-    "rating": 4
+    "rating": 9
   },
   {
     "id": "3",
     "imageUrl": "https://i.imgur.com/XtYlGH4.png",
     "title": "Nike Blazer Mid Suede Classic",
     "price": 4959,
-    "rating": 1
+    "rating": 8
   },
   {
     "id": "4",
     "imageUrl": "https://i.imgur.com/xY2mrOV.png",
     "title": "Puma X Aka Boku Future Rider",
-
     "price": 4959,
     "rating": 8
   },
@@ -32,7 +31,6 @@
     "id": "5",
     "imageUrl": "https://i.imgur.com/fKAULjV.png",
     "title": "Under Armour Curry 8",
-
     "price": 8869,
     "rating": 5
   },
@@ -40,23 +38,20 @@
     "id": "6",
     "imageUrl": "https://i.imgur.com/ZsSoK4N.png",
     "title": "Nike Kyrie 7",
-
     "price": 6593,
-    "rating": 9
+    "rating": 7
   },
   {
     "id": "7",
     "imageUrl": "https://i.imgur.com/jwNVmUA.png",
     "title": "Jordan Air Jordan 11",
-
     "price": 6301,
-    "rating": 6
+    "rating": 10
   },
   {
     "id": "8",
     "imageUrl": "https://i.imgur.com/R0IqNEF.png",
     "title": "Nike LeBron XVIII",
-
     "price": 9630,
     "rating": 4
   },
@@ -64,7 +59,6 @@
     "id": "9",
     "imageUrl": "https://i.imgur.com/exNaa3d.png",
     "title": "Nike Lebron XVIII Low",
-
     "price": 8160,
     "rating": 2
   },
@@ -72,15 +66,13 @@
     "id": "10",
     "imageUrl": "https://i.imgur.com/Yih4izZ.png",
     "title": "Nike Blazer Mid Suede Green Clasic",
-
     "price": 4499,
-    "rating": 7
+    "rating": 5
   },
   {
     "id": "11",
     "imageUrl": "https://i.imgur.com/xY2mrOV.png",
     "title": "Puma X Aka Boku Rider Classic",
-
     "price": 4230,
     "rating": 3
   },
@@ -88,8 +80,7 @@
     "id": "12",
     "imageUrl": "https://i.imgur.com/yMGaJ5l.png",
     "title": "Nike Kyrie Flytrap IV",
-
     "price": 6593,
-    "rating": 3
+    "rating": 6
   }
 ]

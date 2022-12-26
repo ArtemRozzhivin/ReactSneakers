@@ -4,6 +4,7 @@ import { RootState } from '../store';
 export type sortValueType = {
   sort: string;
   name: string;
+  order: string;
 };
 
 interface filterSliceType {
@@ -13,7 +14,7 @@ interface filterSliceType {
 
 const initialState: filterSliceType = {
   searchValue: '',
-  sortValue: { sort: 'popular', name: 'за популярністю' },
+  sortValue: { sort: 'rating', name: 'за популярністю', order: 'desc' },
 };
 
 export const filterSlice = createSlice({

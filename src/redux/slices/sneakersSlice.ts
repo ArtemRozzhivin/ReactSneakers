@@ -1,3 +1,4 @@
+import { sortValueType } from './filterSlice';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
@@ -23,6 +24,7 @@ interface SneakersSliceType {
 
 type fetchSneakersProps = {
   searchValue: string;
+  sortValue: sortValueType;
 };
 
 const initialState: SneakersSliceType = {
@@ -32,8 +34,10 @@ const initialState: SneakersSliceType = {
 
 export const fetchSneakers = createAsyncThunk(
   'users/fetchByIdStatus',
-  async ({ searchValue }: fetchSneakersProps) => {
-    const { data } = await axios.get('https://63975ac377359127a0351817.mockapi.io/sneakers');
+  async ({ searchValue, sortValue }: fetchSneakersProps) => {
+    const { data } = await axios.get(
+      `https://63975ac377359127a0351817.mockapi.io/sneakers?sortBy=${sortValue.sort}&order=${sortValue.order}`,
+    );
 
     const searchingSneakers = data.filter((obj: Sneakers) =>
       obj.title.toLowerCase().includes(searchValue.toLowerCase()),

@@ -13,9 +13,9 @@ type SortPopupProps = {
 };
 
 const sorting = [
-  { sort: 'popular', name: 'за популярністю' },
-  { sort: 'priceASC', name: 'за зростанням ціни' },
-  { sort: 'priceDESC', name: 'за зменшенням ціни' },
+  { sort: 'rating', name: 'за популярністю', order: 'desc' },
+  { sort: 'price', name: 'за зростанням ціни', order: 'asc' },
+  { sort: 'price', name: 'за зменшенням ціни', order: 'desc' },
 ];
 
 const SortPopup: React.FC<SortPopupProps> = ({ sortValue }) => {
