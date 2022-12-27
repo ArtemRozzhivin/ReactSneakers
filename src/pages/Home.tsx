@@ -20,7 +20,7 @@ const Home: React.FC = () => {
   }, [searchValue, sortValue]);
 
   return (
-    <div className="p-10">
+    <div className="p-10 overflow-hidden">
       <div className="flex justify-between items-center mb-10">
         <h4 className="font-bold text-3xl leading-10">Всі кросівкі</h4>
 

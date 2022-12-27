@@ -5,6 +5,8 @@ import Purchase from './pages/Purchase';
 import Favorits from './pages/Favorits';
 import Provider from 'react-redux/es/components/Provider';
 import { store } from './redux/store';
+import { useSelector } from 'react-redux';
+import { selectCartItems } from './redux/slices/cartSlice';
 
 const App = () => {
   return (
