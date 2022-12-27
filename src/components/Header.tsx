@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
           </Link>
         </li>
         <li>
-          <Button>
+          <Link to="/purchase">
             <svg
               width="20"
               height="20"
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
                 fill="#9B9B9B"
               />
             </svg>
-          </Button>
+          </Link>
         </li>
       </ul>
     </div>

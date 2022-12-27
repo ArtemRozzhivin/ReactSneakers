@@ -28,8 +28,6 @@ const SortPopup: React.FC<SortPopupProps> = ({ sortValue }) => {
       }
     };
 
-    console.log('click');
-
     document.body.addEventListener('click', hideSortPopup);
 
     return () => {

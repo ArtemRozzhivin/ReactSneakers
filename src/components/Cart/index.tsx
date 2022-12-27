@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { MouseEventClick } from '../../@types/types';
 import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
+import { addItemsPurchase } from '../../redux/slices/purchaseSlice';
 import { useAppDispatch } from '../../redux/store';
 import CartBought from './CartBought';
 import CartBuy from './CartBuy';
@@ -22,7 +23,6 @@ const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisi
   useEffect(() => {
     const hideCart = (event: MouseEvent) => {
       const _event = event as MouseEventClick;
-      console.log(_event.path);
       if (drawerRef.current && _event.path.includes(drawerRef.current)) {
         setVisibleCart(false);
       }
@@ -38,6 +38,7 @@ const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisi
   const toOrder = () => {
     if (window.confirm('Ви впевнені, що хочете оформити замовлення?')) {
       setBought(true);
+      dispatch(addItemsPurchase([...items]));
       dispatch(clearAllItem());
     }
   };

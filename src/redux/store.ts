@@ -1,3 +1,4 @@
+import purchaseReducer from './slices/purchaseSlice';
 import favoritReducer from './slices/favoritSlice';
 import sneakersReducer from './slices/sneakersSlice';
 import cartReducer from './slices/cartSlice';
@@ -11,6 +12,7 @@ export const store = configureStore({
     cart: cartReducer,
     filter: filterReducer,
     favorit: favoritReducer,
+    purchase: purchaseReducer,
   },
 });
 
