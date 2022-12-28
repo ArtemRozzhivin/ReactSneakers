@@ -85,7 +85,7 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
           </Button>
           {location.pathname === '/purchase' && <div>Куплено: {count}</div>}
         </div>
-        <img width={168} height={120} src={imageUrl} alt="Sneakers" />
+        <img width={192} height={120} src={imageUrl} alt="Sneakers" />
       </div>
       <div className="text-center mt-3 grow">{title}</div>
 

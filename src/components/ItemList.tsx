@@ -7,6 +7,7 @@ import { selectFilters } from '../redux/slices/filterSlice';
 import { fetchSneakers, selectSneakers, Sneakers } from '../redux/slices/sneakersSlice';
 import { useAppDispatch } from '../redux/store';
 import ItemSneakers from './ItemSneakers';
+import SneakersLoading from './SneakersLoading';
 
 type ItemListProps = {
   items: Sneakers[];
@@ -23,21 +24,19 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
     dispatch(itemToFavorits({ ...item }));
   };
 
-  if (!items.length) {
-    return <h2>Завантаження...</h2>;
-  }
-
   return (
     <div>
       <div className="grid grid-cols-4 gap-5 gap-x-5">
-        {items.map((obj) => (
-          <ItemSneakers
-            addItemToCart={addItemToCart}
-            addItemToFavorits={addItemToFavorits}
-            key={obj.id}
-            {...obj}
-          />
-        ))}
+        {!items.length
+          ? [...Array(12)].map((_, index) => <SneakersLoading key={index} />)
+          : items.map((obj) => (
+              <ItemSneakers
+                addItemToCart={addItemToCart}
+                addItemToFavorits={addItemToFavorits}
+                key={obj.id}
+                {...obj}
+              />
+            ))}
       </div>
     </div>
   );

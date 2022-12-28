@@ -10,6 +10,7 @@ module.exports = {
 				'cart': '210px'
 			},
 			colors: {
+				"lightGreen": "#ddffdc",
 				"grayApp": "#9B9B9B",
 				"grayContent": "#BDBDBD"
 			},

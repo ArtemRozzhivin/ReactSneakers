@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
         <li className="flex items-center">
           <Button
             onClick={() => onClickCart(true)}
-            className="flex  bg-slate-300 rounded-xl px-3 py-2 text-gray-600">
+            className="flex  bg-lightGreen rounded-xl px-3 py-2 text-gray-600">
             <div className="pr-1 border-r-2 border-gray-500">
               <svg
                 className="inline mr-1"

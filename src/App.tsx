@@ -11,7 +11,7 @@ import { selectCartItems } from './redux/slices/cartSlice';
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="bg-white rounded-lg md:w-wrapper mx-auto shadow-lg">
+      <div className="bg-white rounded-lg md:w-wrapper mx-auto my-10 shadow-lg">
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -27,8 +27,10 @@ const App = () => {
 export default App;
 
 // connect react-motion
-//fix: при відкритій корзині працює скрол
+//при перезапуску зробити так, щоб корзина не видалялась
+// додати інпуту швидке видалення тексту
 // скелетон на ітем
+//додати
 
 // Верстка:
 //  - анімації
