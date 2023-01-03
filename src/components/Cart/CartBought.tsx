@@ -9,15 +9,15 @@ const CartBought: React.FC<CartBought> = ({ setVisibleCart }) => {
   return (
     <>
       <h4 className="font-bold text-2xl leading-7 mb-7">Корзина</h4>
-      <div className="flex flex-col grow justify-center items-center w-full">
+      <div className="flex flex-col grow justify-center items-center text-center w-full">
         <img height={120} width={83} className="mb-5" src="assets/bought.png" alt="CartEmpty" />
         <h3 className="mb-2 text-2xl leading-7 font-semibold">Замовлення оформлено</h3>
-        <div className="mb-10 leading-6 text-center opacity-40">
+        <div className="mb-10 leading-6 opacity-40">
           Ваше замовлення #18 скоро буде передано кур'єрській доставці.
         </div>
-        <div className="relative w-full">
+        <div className="relative w-3/4">
           <Button onClick={() => setVisibleCart(false)} primary>
-            Повернутися назад
+            На головну
           </Button>
           <svg
             className="absolute top-6 left-8"

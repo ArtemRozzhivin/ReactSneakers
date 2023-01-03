@@ -41,15 +41,15 @@ const CartItemSneakers: React.FC<CartSneakers> = ({
   };
 
   return (
-    <div className="border rounded-3xl flex items-center justify-between p-5">
+    <div className="relative border rounded-3xl flex items-center justify-between p-2 xl:p-5">
       <div className="mr-5 mb-2">
         <img width={70} height={70} src={imageUrl} alt="Sneakers" />
       </div>
-      <div className="grow mr-3">
+      <div className="grow text-sm lg:text-base mr-3">
         <p>{title}</p>
-        <div className="flex items-center justify-between">
+        <div className="flex text-sm flex-col xl:flex-row xl:items-center justify-between">
           <div>{price} грн</div>
-          <div className="flex items-center">
+          <div className="flex justify-between items-center mt-5 xl:mt-0">
             <div className="flex items-center">
               <Button
                 disabled={count <= 1}
@@ -86,7 +86,7 @@ const CartItemSneakers: React.FC<CartSneakers> = ({
         </div>
       </div>
       <div>
-        <Button onClick={removeItem} small>
+        <Button className="absolute bg-white top-2 right-4 lg:static" onClick={removeItem} small>
           <svg
             width="10"
             height="10"

@@ -5,10 +5,12 @@ import Cart from '../components/Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems, setVisibleCart } from '../redux/slices/cartSlice';
 import { useAppDispatch } from '../redux/store';
+import Burger from '../components/Burger';
 
 const MainLayout: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items, totalPrice, totalCount, tax, visibleCart } = useSelector(selectCartItems);
+  const [visibleBurger, setVisibleBurger] = useState(false);
   const body = document.querySelector('body');
 
   useEffect(() => {
@@ -21,6 +23,12 @@ const MainLayout: React.FC = () => {
 
   const onClickVisibleCart = (visible: boolean) => {
     dispatch(setVisibleCart(visible));
+
+    if (visibleBurger) setVisibleBurger(false);
+  };
+
+  const onClickVisibleBurger = (visible: boolean) => {
+    setVisibleBurger(visible);
   };
 
   return (
@@ -35,8 +43,19 @@ const MainLayout: React.FC = () => {
         />
       )}
 
-      <div className="sticky top-0 w-full z-20 bg-white border-b-2 p-2 md:p-7">
-        <Header onClickCart={onClickVisibleCart} totalPrice={totalPrice} totalCount={totalCount} />
+      <div>
+        {visibleBurger && (
+          <Burger onClickCart={onClickVisibleCart} onClickBurger={setVisibleBurger} />
+        )}
+      </div>
+
+      <div className="sticky top-0 w-full z-20 bg-white border-b-2 p-2 md:p-4 lg:p-7">
+        <Header
+          onClickBurger={onClickVisibleBurger}
+          onClickCart={onClickVisibleCart}
+          totalPrice={totalPrice}
+          totalCount={totalCount}
+        />
       </div>
 
       <div>

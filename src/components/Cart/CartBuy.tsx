@@ -59,14 +59,14 @@ const CartBuy: React.FC<CartBuyProps> = ({
         </div>
         <div>
           <Button onClick={clearCart} small>
-            Очистити корзину
+            Очистити
           </Button>
         </div>
         <h4 className="font-bold text-2xl leading-7">Корзина</h4>
       </div>
       <div className="grow overflow-scroll overflow-x-hidden">
         {items.map((obj) => (
-          <div key={obj.id} className="mb-4 last:mb-0">
+          <div key={obj.id} className="mb-2 sm:mb-4 last:mb-0">
             <CartItemSneakers {...obj} />
           </div>
         ))}
@@ -90,7 +90,7 @@ const CartBuy: React.FC<CartBuyProps> = ({
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative mx-auto w-3/4">
         <Button onClick={toOrder} primary>
           Оформити замовлення
         </Button>

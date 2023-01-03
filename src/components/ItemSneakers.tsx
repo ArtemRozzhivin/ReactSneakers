@@ -52,7 +52,7 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
   };
 
   return (
-    <div className="flex  flex-col  border rounded-3xl px-5 py-5 hover:shadow-lg transition-all hover:-translate-y-2">
+    <div className="flex flex-col border rounded-3xl p-3 md:p-5 hover:shadow-lg transition-all hover:-translate-y-2">
       <div className="relative">
         <div className="absolute w-full flex justify-between">
           <Button onClick={addToFavorits} className={itemFavorit ? 'bg-pink-200' : ''} small>
@@ -89,12 +89,14 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
         </div>
         <img className="w-full" src={imageUrl} alt="Sneakers" />
       </div>
-      <div className="text-center mt-3 grow">{title}</div>
+      <div className="text-center mt-3 text-sm md:text-base grow">{title}</div>
 
       <div className="flex items-center justify-between">
         <div>
-          <p className="mb-1 mt-3 leading-3 font-medium uppercase text-grayContent">Ціна:</p>
-          <p>{price} грн</p>
+          <p className="mb-1 mt-3 leading-3 text-sm md:text-base font-medium uppercase text-grayContent">
+            Ціна:
+          </p>
+          <p className="text-sm md:text-base">{price} грн</p>
         </div>
         <div>
           <Button

@@ -67,8 +67,8 @@ const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisi
       <div>
         <div
           ref={drawerRef}
-          className="hidden md:block absolute top-0 right-0 w-full h-full bg-black bg-opacity-50 z-30 transition-all"></div>
-        <div className="flex flex-col bg-white absolute top-0 right-0 w-full md:w-2/5 h-full z-30 p-5">
+          className="hidden md:block fixed top-0 right-0 w-full h-full bg-black bg-opacity-50 z-30 transition-all"></div>
+        <div className="flex flex-col bg-white fixed top-0 right-0 w-full md:w-2/5 h-full z-30 p-3 sm:p-5">
           {renderCart()}
         </div>
       </div>

@@ -11,7 +11,7 @@ import { selectCartItems } from './redux/slices/cartSlice';
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="bg-white rounded-lg mx-auto shadow-lg md:my-10 md:w-wrapper">
+      <div className="bg-white rounded-lg mx-auto shadow-lg lg:my-5 lg:w-wrapper">
         <Routes>
           <Route path="/" element={<MainLayout />}>
             <Route path="/" element={<Home />} />

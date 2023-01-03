@@ -20,9 +20,9 @@ const Home: React.FC = () => {
   }, [searchValue, sortValue]);
 
   return (
-    <div className="p-10 overflow-hidden">
-      <div className="flex justify-between items-center mb-10">
-        <h4 className="font-bold text-3xl leading-10">Всі кросівкі</h4>
+    <div className="p-2 pt-5 md:p-10 overflow-hidden">
+      <div className="flex justify-between items-center mb-5  md:mb-10">
+        <h4 className="font-bold text-2xl md:text-3xl leading-10">Всі кросівкі</h4>
 
         <SortPopup sortValue={sortValue} />
       </div>

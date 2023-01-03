@@ -11,7 +11,7 @@ const FavoritsEmpty = () => {
       <h3 className="font-semibold text-2xl leading-7 text-center mb-2">Закладок немає</h3>
       <div className="opacity-40 leading-6 mb-10">Ви нічого не додавали до закладок.</div>
       <Link to="/" className="relative w-1/3">
-        <Button primary>Повернутися назад</Button>
+        <Button primary>На головну</Button>
         <svg
           className="absolute top-6 left-8"
           width="16"

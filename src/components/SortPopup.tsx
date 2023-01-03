@@ -54,7 +54,7 @@ const SortPopup: React.FC<SortPopupProps> = ({ sortValue }) => {
         </div>
 
         <div className="text-left">
-          <h3 className="uppercase text-sm">Сортування</h3>
+          <h3 className="uppercase text-xs">Сортування</h3>
           <div className="text-xs font-light">{sortValue.name}</div>
         </div>
       </Button>

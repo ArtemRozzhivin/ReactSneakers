@@ -6,43 +6,46 @@ import Search from './Search';
 type HeaderProps = {
   totalPrice: number;
   totalCount: number;
+  onClickBurger: (visible: boolean) => void;
   onClickCart: (visible: boolean) => void;
 };
 
-const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) => {
+const Header: React.FC<HeaderProps> = ({ onClickCart, onClickBurger, totalPrice, totalCount }) => {
   return (
-    <div className="flex justify-between items-center -mx-1 md:flex-row md:-mx-4">
-      <div className="mx-1 md:hidden md:mx-4">
+    <div className="flex justify-between items-center -mx-1 md:flex-row lg:-mx-4">
+      <div onClick={() => onClickBurger(true)} className="mx-1 md:hidden lg:mx-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
           className="w-6 h-6">
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
           />
         </svg>
       </div>
-      <Link to="/" className="mx-1 flex md:mx-4">
+      <Link to="/" className="mx-1 flex lg:mx-4">
         <img src="assets/logo.png" alt="logo" />
         <div className="hidden ml-3 md:block">
-          <h3 className="font-bold text-2xl uppercase leading-6">React Sneakers</h3>
-          <div className="text-sm leading-4 text-grayApp">Магазин найкращих кросівок</div>
+          <h3 className="font-bold text-xl lg:text-2xl uppercase leading-6">React Sneakers</h3>
+          <div className="text-xs lg:text-sm leading-4 text-grayApp">
+            Магазин найкращих кросівок
+          </div>
         </div>
       </Link>
-      <div className="mx-1 grow md:mx-4">
+      <div className="mx-1 grow md:grow-0 lg:mx-4">
         <Search />
       </div>
-      <ul className="mx-1 flex w-auto items-center md:mx-4">
+      <ul className="mx-1 flex w-auto items-center lg:mx-4">
         <li className="flex items-center">
           <Button
             onClick={() => onClickCart(true)}
             className="flex rounded-xl md:px-3 md:py-2 text-gray-600 md:bg-lightGreen">
-            <div className="relative pr-1 border-gray-500 md:border-r-2">
+            <div className="relative lg:pr-1 border-gray-500 lg:border-r-2">
               <svg
                 className="inline mr-1"
                 width="25"
@@ -81,10 +84,10 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
               </div>
               <div className="hidden md:inline">{totalCount}</div>
             </div>
-            <span className="hidden ml-1 md:block">{totalPrice} грн</span>
+            <span className="hidden ml-1 lg:block">{totalPrice} грн</span>
           </Button>
         </li>
-        <li className="hidden mx-5 md:block">
+        <li className="hidden mx-3 md:block">
           <Link to="/liked">
             <svg
               width="21"
