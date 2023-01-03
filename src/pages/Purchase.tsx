@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import ItemList from '../components/ItemList';
 import ItemSneakers from '../components/ItemSneakers';
 import PurchaseEmpty from '../components/Purchase/PurchaseEmpty';
 import { addItemCart } from '../redux/slices/cartSlice';
@@ -11,16 +12,7 @@ import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 
 const Purchase: React.FC = () => {
-  const dispatch = useAppDispatch();
   const { items } = useSelector(selectPurchase);
-
-  const addItemToCart = (item: Sneakers) => {
-    dispatch(addItemCart({ ...item, count: 1 }));
-  };
-
-  const addItemToFavorits = (item: Sneakers) => {
-    dispatch(itemToFavorits({ ...item }));
-  };
 
   return (
     <div>
@@ -55,16 +47,7 @@ const Purchase: React.FC = () => {
             <h4 className="ml-5 font-bold text-3xl leading-10">Мої покупки</h4>
           </div>
           <div>
-            <div className="grid grid-cols-4 gap-5 gap-x-5">
-              {items.map((obj) => (
-                <ItemSneakers
-                  addItemToCart={addItemToCart}
-                  addItemToFavorits={addItemToFavorits}
-                  key={obj.id}
-                  {...obj}
-                />
-              ))}
-            </div>
+            <ItemList items={items} />
           </div>
         </div>
       ) : (

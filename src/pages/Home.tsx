@@ -25,8 +25,6 @@ const Home: React.FC = () => {
         <h4 className="font-bold text-3xl leading-10">Всі кросівкі</h4>
 
         <SortPopup sortValue={sortValue} />
-
-        <Search />
       </div>
 
       <ItemList items={sneakers} />

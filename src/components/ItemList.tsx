@@ -16,6 +16,8 @@ type ItemListProps = {
 const ItemList: React.FC<ItemListProps> = ({ items }) => {
   const dispatch = useAppDispatch();
 
+  console.log(items);
+
   const addItemToCart = (item: Sneakers) => {
     dispatch(addItemCart({ ...item, count: 1 }));
   };
@@ -26,7 +28,7 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-4 gap-5 gap-x-5">
+      <div className="grid grid-cols-2 gap-5 gap-x-5 md:grid-cols-4">
         {!items.length
           ? [...Array(12)].map((_, index) => <SneakersLoading key={index} />)
           : items.map((obj) => (

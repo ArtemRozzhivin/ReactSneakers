@@ -83,9 +83,11 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
               </svg>
             )}
           </Button>
-          {location.pathname === '/purchase' && <div>Куплено: {count}</div>}
+          {location.pathname === '/purchase' && (
+            <div className="leading-3 text-gray-500">Куплено: {count}</div>
+          )}
         </div>
-        <img width={192} height={120} src={imageUrl} alt="Sneakers" />
+        <img className="w-full" src={imageUrl} alt="Sneakers" />
       </div>
       <div className="text-center mt-3 grow">{title}</div>
 

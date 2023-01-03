@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../ui/Button';
+import Search from './Search';
 
 type HeaderProps = {
   totalPrice: number;
@@ -10,20 +11,38 @@ type HeaderProps = {
 
 const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) => {
   return (
-    <div className="flex justify-between items-center p-10 border-b-2">
-      <Link to="/" className="flex items-center">
+    <div className="flex justify-between items-center -mx-1 md:flex-row md:-mx-4">
+      <div className="mx-1 md:hidden md:mx-4">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          className="w-6 h-6">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      </div>
+      <Link to="/" className="mx-1 flex md:mx-4">
         <img src="assets/logo.png" alt="logo" />
-        <div className="ml-3">
+        <div className="hidden ml-3 md:block">
           <h3 className="font-bold text-2xl uppercase leading-6">React Sneakers</h3>
           <div className="text-sm leading-4 text-grayApp">Магазин найкращих кросівок</div>
         </div>
       </Link>
-      <ul className="flex w-auto items-center">
+      <div className="mx-1 grow md:mx-4">
+        <Search />
+      </div>
+      <ul className="mx-1 flex w-auto items-center md:mx-4">
         <li className="flex items-center">
           <Button
             onClick={() => onClickCart(true)}
-            className="flex  bg-lightGreen rounded-xl px-3 py-2 text-gray-600">
-            <div className="pr-1 border-r-2 border-gray-500">
+            className="flex rounded-xl md:px-3 md:py-2 text-gray-600 md:bg-lightGreen">
+            <div className="relative pr-1 border-gray-500 md:border-r-2">
               <svg
                 className="inline mr-1"
                 width="25"
@@ -53,12 +72,19 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
                   strokeLinejoin="round"
                 />
               </svg>
-              {totalCount}
+              <div className="md:hidden">
+                {totalCount > 0 && (
+                  <div className="absolute text-xs bg-red-600 text-white rounded-3xl py-[2px] px-[5px] -top-2 -right-1 z-10 md:static">
+                    {totalCount}
+                  </div>
+                )}
+              </div>
+              <div className="hidden md:inline">{totalCount}</div>
             </div>
-            <span className="ml-1">{totalPrice} грн</span>
+            <span className="hidden ml-1 md:block">{totalPrice} грн</span>
           </Button>
         </li>
-        <li className="mx-5">
+        <li className="hidden mx-5 md:block">
           <Link to="/liked">
             <svg
               width="21"
@@ -73,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, totalPrice, totalCount }) 
             </svg>
           </Link>
         </li>
-        <li>
+        <li className="hidden md:block">
           <Link to="/purchase">
             <svg
               width="20"

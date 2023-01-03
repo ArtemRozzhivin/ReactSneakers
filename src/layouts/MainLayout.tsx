@@ -35,8 +35,13 @@ const MainLayout: React.FC = () => {
         />
       )}
 
-      <Header onClickCart={onClickVisibleCart} totalPrice={totalPrice} totalCount={totalCount} />
-      <Outlet />
+      <div className="sticky top-0 w-full z-20 bg-white border-b-2 p-2 md:p-7">
+        <Header onClickCart={onClickVisibleCart} totalPrice={totalPrice} totalCount={totalCount} />
+      </div>
+
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 };
