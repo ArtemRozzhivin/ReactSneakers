@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
 import { useAppDispatch } from '../../redux/store';
 import Button from '../../ui/Button';
-import CartItemSneakers from '../CartItemSneakers';
+import CartItemSneakers from '../Sneakers/CartItemSneakers';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type CartBuyProps = {
   items: CartSneakers[];
@@ -65,11 +66,18 @@ const CartBuy: React.FC<CartBuyProps> = ({
         <h4 className="font-bold text-2xl leading-7">Корзина</h4>
       </div>
       <div className="grow overflow-scroll overflow-x-hidden">
-        {items.map((obj) => (
-          <div key={obj.id} className="mb-2 sm:mb-4 last:mb-0">
-            <CartItemSneakers {...obj} />
-          </div>
-        ))}
+        <AnimatePresence>
+          {items.map((obj) => (
+            <motion.div
+              key={obj.id}
+              initial={{ x: '75vw', opacity: 0 }}
+              animate={{ x: '0', opacity: 1 }}
+              exit={{ x: '40vw', opacity: 0 }}
+              className="mb-2 sm:mb-4 last:mb-0">
+              <CartItemSneakers {...obj} />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
       <div className="my-4">
@@ -90,12 +98,12 @@ const CartBuy: React.FC<CartBuyProps> = ({
         </div>
       </div>
 
-      <div className="relative mx-auto w-3/4">
+      <div className="relative mx-auto w-[210px] md:w-3/4">
         <Button onClick={toOrder} primary>
           Оформити замовлення
         </Button>
         <svg
-          className="absolute top-6 right-7"
+          className="absolute top-8 md:top-6 right-7"
           width="16"
           height="14"
           viewBox="0 0 16 14"

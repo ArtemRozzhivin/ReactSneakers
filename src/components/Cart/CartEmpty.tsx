@@ -15,7 +15,7 @@ const CartEmpty: React.FC<CartEmptyProps> = ({ setVisibleCart }) => {
         <div className="mb-10 leading-6 text-center opacity-40">
           Додайте хоча б одну пару кросівок, щоб зробити замовлення.
         </div>
-        <div className="relative w-3/4">
+        <div className="relative w-[210px] md:w-3/4">
           <Button onClick={() => setVisibleCart(false)} primary>
             На головну
           </Button>

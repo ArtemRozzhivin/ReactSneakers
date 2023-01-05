@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { selectCartItemById } from '../redux/slices/cartSlice';
-import { selectFavoritItemById } from '../redux/slices/favoritSlice';
-import { Sneakers } from '../redux/slices/sneakersSlice';
-import { useAppDispatch } from '../redux/store';
-import Button from '../ui/Button';
+import { selectCartItemById } from '../../redux/slices/cartSlice';
+import { selectFavoritItemById } from '../../redux/slices/favoritSlice';
+import { Sneakers } from '../../redux/slices/sneakersSlice';
+import Button from '../../ui/Button';
 
 type ItemSneakersProps = {
   id: string;
@@ -84,7 +83,7 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
             )}
           </Button>
           {location.pathname === '/purchase' && (
-            <div className="leading-3 text-gray-500">Куплено: {count}</div>
+            <div className="leading-3 text-sm md:text-base text-gray-500">Куплено: {count}</div>
           )}
         </div>
         <img className="w-full" src={imageUrl} alt="Sneakers" />

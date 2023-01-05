@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import CartPurchase from '../components/Cart';
 import ItemList from '../components/ItemList';
-import ItemSneakers from '../components/ItemSneakers';
-import Search from '../components/Search';
 import SortPopup from '../components/SortPopup';
 import { selectFilters } from '../redux/slices/filterSlice';
 import { fetchSneakers, selectSneakers } from '../redux/slices/sneakersSlice';
 import { useAppDispatch } from '../redux/store';
-import Input from '../ui/Input';
 
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();

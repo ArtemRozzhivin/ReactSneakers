@@ -1,13 +1,10 @@
-import axios from 'axios';
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux/es/exports';
-import { addItemCart, selectCartItems } from '../redux/slices/cartSlice';
+import React from 'react';
+import { addItemCart } from '../redux/slices/cartSlice';
 import { itemToFavorits } from '../redux/slices/favoritSlice';
-import { selectFilters } from '../redux/slices/filterSlice';
-import { fetchSneakers, selectSneakers, Sneakers } from '../redux/slices/sneakersSlice';
+import { Sneakers } from '../redux/slices/sneakersSlice';
 import { useAppDispatch } from '../redux/store';
-import ItemSneakers from './ItemSneakers';
-import SneakersLoading from './SneakersLoading';
+import ItemSneakers from './Sneakers/ItemSneakers';
+import SneakersLoading from './Sneakers/SneakersLoading';
 
 type ItemListProps = {
   items: Sneakers[];

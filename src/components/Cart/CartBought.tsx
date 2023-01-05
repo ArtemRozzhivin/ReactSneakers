@@ -15,7 +15,7 @@ const CartBought: React.FC<CartBought> = ({ setVisibleCart }) => {
         <div className="mb-10 leading-6 opacity-40">
           Ваше замовлення #18 скоро буде передано кур'єрській доставці.
         </div>
-        <div className="relative w-3/4">
+        <div className="relative w-[210px] md:w-3/4">
           <Button onClick={() => setVisibleCart(false)} primary>
             На головну
           </Button>

@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, onClickBurger, totalPrice,
       <Link to="/" className="mx-1 flex lg:mx-4">
         <img src="assets/logo.png" alt="logo" />
         <div className="hidden ml-3 md:block">
-          <h3 className="font-bold text-xl lg:text-2xl uppercase leading-6">React Sneakers</h3>
+          <h3 className="font-bold text-xl uppercase leading-6">React Sneakers</h3>
           <div className="text-xs lg:text-sm leading-4 text-grayApp">
             Магазин найкращих кросівок
           </div>
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ onClickCart, onClickBurger, totalPrice,
               </svg>
               <div className="md:hidden">
                 {totalCount > 0 && (
-                  <div className="absolute text-xs bg-red-600 text-white rounded-3xl py-[2px] px-[5px] -top-2 -right-1 z-10 md:static">
+                  <div className="absolute text-[9px] bg-red-600 text-white rounded-3xl py-[2px] px-[5px] -top-2 -right-1 z-10 md:static">
                     {totalCount}
                   </div>
                 )}

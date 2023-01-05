@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.0.9",
     "axios": "^1.2.1",
     "clsx": "^1.2.1",
+    "framer-motion": "^8.1.7",
     "lodash.debounce": "^4.0.8",
     "lodash.filter": "^4.6.0",
     "lodash.find": "^4.6.0",

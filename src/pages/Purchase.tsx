@@ -2,13 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ItemList from '../components/ItemList';
-import ItemSneakers from '../components/ItemSneakers';
 import PurchaseEmpty from '../components/Purchase/PurchaseEmpty';
-import { addItemCart } from '../redux/slices/cartSlice';
-import { itemToFavorits } from '../redux/slices/favoritSlice';
 import { selectPurchase } from '../redux/slices/purchaseSlice';
-import { Sneakers } from '../redux/slices/sneakersSlice';
-import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 
 const Purchase: React.FC = () => {
@@ -17,8 +12,8 @@ const Purchase: React.FC = () => {
   return (
     <div>
       {items.length ? (
-        <div className="p-10">
-          <div className="flex items-center mb-10">
+        <div className="p-2 pt-5 md:p-10">
+          <div className="flex items-center mb-5 md:mb-10">
             <Link to="/">
               <Button small>
                 <svg
@@ -44,7 +39,7 @@ const Purchase: React.FC = () => {
                 </svg>
               </Button>
             </Link>
-            <h4 className="ml-5 font-bold text-3xl leading-10">Мої покупки</h4>
+            <h4 className="ml-5 font-bold text-2xl md:text-3xl leading-10">Мої покупки</h4>
           </div>
           <div>
             <ItemList items={items} />

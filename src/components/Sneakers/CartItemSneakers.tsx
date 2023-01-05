@@ -4,9 +4,9 @@ import {
   CartSneakers,
   minusItemCart,
   removeItemCart,
-} from '../redux/slices/cartSlice';
-import { useAppDispatch } from '../redux/store';
-import Button from '../ui/Button';
+} from '../../redux/slices/cartSlice';
+import { useAppDispatch } from '../../redux/store';
+import Button from '../../ui/Button';
 
 const CartItemSneakers: React.FC<CartSneakers> = ({
   id,

@@ -2,12 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ItemList from '../components/ItemList';
-import ItemSneakers from '../components/ItemSneakers';
 import FavoritsEmpty from '../components/Marks/FavoritsEmpty';
-import { addItemCart } from '../redux/slices/cartSlice';
-import { itemToFavorits, selectFavorits } from '../redux/slices/favoritSlice';
-import { Sneakers } from '../redux/slices/sneakersSlice';
-import { useAppDispatch } from '../redux/store';
+import { selectFavorits } from '../redux/slices/favoritSlice';
 import Button from '../ui/Button';
 
 const Favorits: React.FC = () => {
@@ -18,8 +14,8 @@ const Favorits: React.FC = () => {
   }
 
   return (
-    <div className="p-10">
-      <div className="flex items-center mb-10">
+    <div className="p-2 pt-5 md:p-10">
+      <div className="flex items-center mb-5 md:mb-10">
         <Link to="/">
           <Button small>
             <svg
@@ -45,7 +41,7 @@ const Favorits: React.FC = () => {
             </svg>
           </Button>
         </Link>
-        <h4 className="ml-5 font-bold text-3xl leading-10">Мої обрані</h4>
+        <h4 className="font-bold text-2xl md:text-3xl leading-10 ml-5">Мої обрані</h4>
       </div>
       <div>
         <ItemList items={items} />

@@ -1,9 +1,6 @@
-import { useSelector } from 'react-redux';
-import { createSlice, current, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { CartSneakers } from './cartSlice';
-import filter from 'lodash.filter';
-import { Action } from '@remix-run/router';
 
 interface purchaseSliceType {
   items: CartSneakers[];

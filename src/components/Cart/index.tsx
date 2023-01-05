@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { MouseEventClick } from '../../@types/types';
 import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
@@ -12,10 +13,18 @@ type CartProps = {
   totalPrice: number;
   totalCount: number;
   tax: number;
+  visibleCart: boolean;
   setVisibleCart: (open: boolean) => void;
 };
 
-const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisibleCart }) => {
+const Cart: React.FC<CartProps> = ({
+  items,
+  totalPrice,
+  totalCount,
+  tax,
+  visibleCart,
+  setVisibleCart,
+}) => {
   const dispatch = useAppDispatch();
   const drawerRef = useRef<HTMLDivElement>(null);
   const [bought, setBought] = useState(false);
@@ -63,16 +72,27 @@ const Cart: React.FC<CartProps> = ({ items, totalPrice, totalCount, tax, setVisi
   };
 
   return (
-    <div>
-      <div>
-        <div
-          ref={drawerRef}
-          className="hidden md:block fixed top-0 right-0 w-full h-full bg-black bg-opacity-50 z-30 transition-all"></div>
-        <div className="flex flex-col bg-white fixed top-0 right-0 w-full md:w-2/5 h-full z-30 p-3 sm:p-5">
-          {renderCart()}
-        </div>
-      </div>
-    </div>
+    <>
+      <AnimatePresence>
+        {visibleCart && (
+          <div>
+            <div>
+              <div
+                ref={drawerRef}
+                className="hidden md:block fixed top-0 right-0 w-full h-full bg-black bg-opacity-50 z-30 transition-all"></div>
+              <motion.div
+                initial={{ x: '100vw' }}
+                animate={{ x: '0' }}
+                exit={{ x: '100vw' }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col bg-white fixed top-0 right-0 w-full md:w-2/5 h-full z-30 p-3 sm:p-5">
+                {renderCart()}
+              </motion.div>
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
