@@ -10,14 +10,14 @@ import { useAppDispatch } from '../redux/store';
 const Home: React.FC = () => {
   const dispatch = useAppDispatch();
   const { sneakers } = useSelector(selectSneakers);
-  const { searchValue, sortValue } = useSelector(selectFilters);
+  const { sortValue } = useSelector(selectFilters);
 
   useEffect(() => {
-    dispatch(fetchSneakers({ searchValue, sortValue }));
-  }, [searchValue, sortValue]);
+    dispatch(fetchSneakers({ sortValue }));
+  }, [sortValue]);
 
   return (
-    <div className="p-2 pt-5 md:p-10 overflow-hidden">
+    <div className="p-2 pt-5 md:p-10 min-h-[100vh] overflow-hidden">
       <div className="flex justify-between items-center mb-5  md:mb-10">
         <h4 className="font-bold text-2xl md:text-3xl leading-10">Всі кросівкі</h4>
 

@@ -20,6 +20,5 @@ export interface SneakersSliceType {
 }
 
 export type fetchSneakersProps = {
-  searchValue: string;
   sortValue: sortValueType;
 };
