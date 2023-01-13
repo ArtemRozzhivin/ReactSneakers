@@ -19,8 +19,10 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
   const { searchValue } = useSelector(selectFilters);
 
   useEffect(() => {
+    console.log(items, searchingItem, 'ues');
+
     setSearchingItem(searchFromList(items, searchValue));
-  }, [searchValue]);
+  }, [items, searchValue]);
 
   const addItemToCart = (item: Sneakers) => {
     dispatch(addItemCart({ ...item, count: 1 }));
@@ -34,7 +36,7 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
     <div>
       <div className="grid grid-cols-2 gap-2 md:gap-5 sm:grid-cols-3 lg:grid-cols-4">
         {!items.length
-          ? [...Array(12)].map((_, index) => <SneakersLoading key={index} />)
+          ? [...Array(4)].map((_, index) => <SneakersLoading key={index} />)
           : searchingItem.map((obj) => (
               <ItemSneakers
                 addItemToCart={addItemToCart}
