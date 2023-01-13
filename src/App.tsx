@@ -13,8 +13,8 @@ const Favorits = lazy(() => import('./pages/Favorits'));
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="bg-white rounded-lg mx-auto shadow-lg lg:my-5 lg:w-wrapper">
-        <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loading />}>
+        <div className="bg-white rounded-lg mx-auto shadow-lg lg:my-5 lg:w-wrapper">
           <Routes>
             <Route path="/" element={<MainLayout />}>
               <Route path="/" element={<Home />} />
@@ -22,8 +22,8 @@ const App = () => {
               <Route path="/liked" element={<Favorits />} />
             </Route>
           </Routes>
-        </Suspense>
-      </div>
+        </div>
+      </Suspense>
     </Provider>
   );
 };
