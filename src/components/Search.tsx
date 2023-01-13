@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { setSearching } from '../redux/slices/filterSlice';
+import { setSearching } from '../redux/Filter/filterSlice';
 import { useAppDispatch } from '../redux/store';
 import debounce from 'lodash.debounce';
 import Input from '../ui/Input';

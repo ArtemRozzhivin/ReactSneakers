@@ -1,10 +1,6 @@
-import { RootState } from './../store';
-import { Sneakers } from './sneakersSlice';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface favoritSliceType {
-  items: Sneakers[];
-}
+import { Sneakers } from '../Sneakers/types';
+import { favoritSliceType } from './types';
 
 const initialState: favoritSliceType = {
   items: [],
@@ -25,10 +21,6 @@ export const favoritSlice = createSlice({
     },
   },
 });
-
-export const selectFavorits = (state: RootState) => state.favorit;
-export const selectFavoritItemById = (id: string) => (state: RootState) =>
-  state.favorit.items.find((obj) => obj.id === id);
 
 export const { itemToFavorits } = favoritSlice.actions;
 

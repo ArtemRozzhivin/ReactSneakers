@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { MouseEventClick } from '../../@types/types';
-import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
-import { addItemsPurchase } from '../../redux/slices/purchaseSlice';
+import { clearAllItem } from '../../redux/Cart/cartSlice';
+import { CartSneakers } from '../../redux/Cart/types';
+import { addItemsPurchase } from '../../redux/Purchase/purchaseSlice';
 import { useAppDispatch } from '../../redux/store';
 import CartBought from './CartBought';
 import CartBuy from './CartBuy';

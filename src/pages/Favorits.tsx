@@ -2,9 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ItemList from '../components/ItemList';
-import FavoritsEmpty from '../components/Marks/FavoritsEmpty';
-import { selectFavorits } from '../redux/slices/favoritSlice';
+import FavoritsEmpty from '../components/Farorits/FavoritsEmpty';
 import Button from '../ui/Button';
+import { selectFavorits } from '../redux/Favorit/selectors';
 
 const Favorits: React.FC = () => {
   const { items } = useSelector(selectFavorits);
@@ -14,7 +14,7 @@ const Favorits: React.FC = () => {
   }
 
   return (
-    <div className="p-2 pt-5 md:p-10">
+    <div className="p-2 min-h-[100vh] pt-5 md:p-10">
       <div className="flex items-center mb-5 md:mb-10">
         <Link to="/">
           <Button small>
@@ -43,7 +43,7 @@ const Favorits: React.FC = () => {
         </Link>
         <h4 className="font-bold text-2xl md:text-3xl leading-10 ml-5">Мої обрані</h4>
       </div>
-      <div>
+      <div className="">
         <ItemList items={items} />
       </div>
     </div>

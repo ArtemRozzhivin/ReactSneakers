@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ItemList from '../components/ItemList';
 import SortPopup from '../components/SortPopup';
-import { selectFilters } from '../redux/slices/filterSlice';
-import { fetchSneakers, selectSneakers } from '../redux/slices/sneakersSlice';
+import { selectFilters } from '../redux/Filter/selectors';
+import { fetchSneakers } from '../redux/Sneakers/asyncFetchSneakers';
+import { selectSneakers } from '../redux/Sneakers/selectors';
 import { useAppDispatch } from '../redux/store';
 
 const Home: React.FC = () => {

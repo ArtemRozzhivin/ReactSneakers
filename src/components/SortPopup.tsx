@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
 import { MouseEventClick } from '../@types/types';
-import { setSorting, sortValueType } from '../redux/slices/filterSlice';
+import { setSorting } from '../redux/Filter/filterSlice';
+import { sortValueType } from '../redux/Filter/types';
 import { useAppDispatch } from '../redux/store';
 import Button from '../ui/Button';
 

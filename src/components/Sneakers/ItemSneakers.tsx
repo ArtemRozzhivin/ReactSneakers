@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { selectCartItemById } from '../../redux/slices/cartSlice';
-import { selectFavoritItemById } from '../../redux/slices/favoritSlice';
-import { Sneakers } from '../../redux/slices/sneakersSlice';
+import { selectCartItemById } from '../../redux/Cart/selectors';
+import { selectFavoritItemById } from '../../redux/Favorit/selectors';
+import { Sneakers } from '../../redux/Sneakers/types';
 import Button from '../../ui/Button';
 
 type ItemSneakersProps = {
@@ -54,7 +54,10 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
     <div className="flex flex-col border rounded-3xl p-3 md:p-5 hover:shadow-lg transition-all hover:-translate-y-2">
       <div className="relative">
         <div className="absolute w-full flex justify-between">
-          <Button onClick={addToFavorits} className={itemFavorit ? 'bg-pink-200' : ''} small>
+          <Button
+            onClick={addToFavorits}
+            className={itemFavorit ? 'bg-pink-200 hover:brightness-100' : ''}
+            small>
             {itemFavorit ? (
               <svg
                 width="15"
@@ -100,7 +103,7 @@ const ItemSneakers: React.FC<ItemSneakersProps> = ({
         <div>
           <Button
             disabled={itemCart && true}
-            className={itemCart ? 'bg-green-400 disabled:opacity-100' : ''}
+            className={itemCart ? 'bg-green-400 hover:brightness-100  disabled:opacity-100' : ''}
             onClick={addToCart}
             small>
             {itemCart ? (

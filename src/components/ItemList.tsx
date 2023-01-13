@@ -1,7 +1,7 @@
 import React from 'react';
-import { addItemCart } from '../redux/slices/cartSlice';
-import { itemToFavorits } from '../redux/slices/favoritSlice';
-import { Sneakers } from '../redux/slices/sneakersSlice';
+import { addItemCart } from '../redux/Cart/cartSlice';
+import { itemToFavorits } from '../redux/Favorit/favoritSlice';
+import { Sneakers } from '../redux/Sneakers/types';
 import { useAppDispatch } from '../redux/store';
 import ItemSneakers from './Sneakers/ItemSneakers';
 import SneakersLoading from './Sneakers/SneakersLoading';

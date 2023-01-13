@@ -1,8 +1,8 @@
-import purchaseReducer from './slices/purchaseSlice';
-import favoritReducer from './slices/favoritSlice';
-import sneakersReducer from './slices/sneakersSlice';
-import cartReducer from './slices/cartSlice';
-import filterReducer from './slices/filterSlice';
+import purchaseReducer from './Purchase/purchaseSlice';
+import favoritReducer from './Favorit/favoritSlice';
+import sneakersReducer from './Sneakers/sneakersSlice';
+import cartReducer from './Cart/cartSlice';
+import filterReducer from './Filter/filterSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import ItemList from '../components/ItemList';
 import PurchaseEmpty from '../components/Purchase/PurchaseEmpty';
-import { selectPurchase } from '../redux/slices/purchaseSlice';
+import { selectPurchase } from '../redux/Purchase/selectors';
 import Button from '../ui/Button';
 
 const Purchase: React.FC = () => {
@@ -12,7 +12,7 @@ const Purchase: React.FC = () => {
   return (
     <div>
       {items.length ? (
-        <div className="p-2 pt-5 md:p-10">
+        <div className="p-2 min-h-[100vh] pt-5 md:p-10">
           <div className="flex items-center mb-5 md:mb-10">
             <Link to="/">
               <Button small>

@@ -13,7 +13,7 @@ const CartBought: React.FC<CartBought> = ({ setVisibleCart }) => {
         <img height={120} width={83} className="mb-5" src="assets/bought.png" alt="CartEmpty" />
         <h3 className="mb-2 text-2xl leading-7 font-semibold">Замовлення оформлено</h3>
         <div className="mb-10 leading-6 opacity-40">
-          Ваше замовлення #18 скоро буде передано кур'єрській доставці.
+          Ваше замовлення скоро буде передано кур'єрській доставці.
         </div>
         <div className="relative w-[210px] md:w-3/4">
           <Button onClick={() => setVisibleCart(false)} primary>

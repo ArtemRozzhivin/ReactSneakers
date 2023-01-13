@@ -1,10 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import { CartSneakers } from './cartSlice';
-
-interface purchaseSliceType {
-  items: CartSneakers[];
-}
+import { CartSneakers } from '../Cart/types';
+import { purchaseSliceType } from './types';
 
 const initialState: purchaseSliceType = {
   items: [],
@@ -37,8 +33,6 @@ export const purchaseSlice = createSlice({
     },
   },
 });
-
-export const selectPurchase = (state: RootState) => state.purchase;
 
 export const { addItemsPurchase } = purchaseSlice.actions;
 

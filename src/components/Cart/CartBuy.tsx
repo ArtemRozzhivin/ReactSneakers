@@ -1,9 +1,10 @@
 import React from 'react';
-import { clearAllItem, CartSneakers } from '../../redux/slices/cartSlice';
+import { clearAllItem } from '../../redux/Cart/cartSlice';
 import { useAppDispatch } from '../../redux/store';
 import Button from '../../ui/Button';
-import CartItemSneakers from '../Sneakers/CartItemSneakers';
+import CartItemSneakers from './CartItem/CartItemSneakers';
 import { AnimatePresence, motion } from 'framer-motion';
+import { CartSneakers } from '../../redux/Cart/types';
 
 type CartBuyProps = {
   items: CartSneakers[];

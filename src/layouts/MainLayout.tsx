@@ -1,17 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from '../components/Header';
 import Cart from '../components/Cart';
 import { useSelector } from 'react-redux';
-import { selectCartItems, setVisibleCart } from '../redux/slices/cartSlice';
+import { setVisibleCart } from '../redux/Cart/cartSlice';
 import { useAppDispatch } from '../redux/store';
-import Burger from '../components/Burger/Burger';
+import Burger from '../ui/Burger/Burger';
+import { selectCartItems } from '../redux/Cart/selectors';
 
 const MainLayout: React.FC = () => {
   const dispatch = useAppDispatch();
   const { items, totalPrice, totalCount, tax, visibleCart } = useSelector(selectCartItems);
   const [visibleBurger, setVisibleBurger] = useState(false);
   const body = document.querySelector('body');
+  const mountedRef = useRef(false);
+
+  useEffect(() => {
+    if (mountedRef) {
+      const jsonSneakers = JSON.stringify(items);
+      localStorage.setItem('sneakers', jsonSneakers);
+    }
+    mountedRef.current = true;
+  }, [items]);
 
   // on/off body scroll when open burger or cart
   useEffect(() => {
