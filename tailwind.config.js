@@ -23,6 +23,9 @@ module.exports = {
 				"grayApp": "#9B9B9B",
 				"grayContent": "#BDBDBD"
 			},
+			backgroundColor: {
+				"lightGreen": "#ddffdc",
+			}
 		},
   },
   plugins: [],

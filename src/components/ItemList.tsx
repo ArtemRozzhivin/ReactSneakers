@@ -6,6 +6,7 @@ import { selectFilters } from '../redux/Filter/selectors';
 import { Sneakers } from '../redux/Sneakers/types';
 import { useAppDispatch } from '../redux/store';
 import { searchFromList } from '../utils/searchFromList';
+import ThreeDotsWave from './Loaders/ThreeDotsWave';
 import ItemSneakers from './Sneakers/ItemSneakers';
 import SneakersLoading from './Sneakers/SneakersLoading';
 
@@ -19,8 +20,6 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
   const { searchValue } = useSelector(selectFilters);
 
   useEffect(() => {
-    console.log(items, searchingItem, 'ues');
-
     setSearchingItem(searchFromList(items, searchValue));
   }, [items, searchValue]);
 
@@ -32,21 +31,38 @@ const ItemList: React.FC<ItemListProps> = ({ items }) => {
     dispatch(itemToFavorits({ ...item }));
   };
 
+	const renderLoad = () => {
+		if(window.screen.availWidth < 700){
+			return <div className='flex justify-center items-center h-[70vh]'>
+				<div>
+				<ThreeDotsWave/>
+				</div>
+			</div>
+		} else{
+			return (
+				<div className="grid grid-cols-2 gap-2 md:gap-5 sm:grid-cols-3 lg:grid-cols-4">
+					{[...Array(4)].map((_, index) => (<SneakersLoading key={index} />))}
+				</div>
+			)
+		}
+	}
+
   return (
-    <div>
-      <div className="grid grid-cols-2 gap-2 md:gap-5 sm:grid-cols-3 lg:grid-cols-4">
-        {!items.length
-          ? [...Array(4)].map((_, index) => <SneakersLoading key={index} />)
-          : searchingItem.map((obj) => (
-              <ItemSneakers
+    <>
+      {!items.length
+				? renderLoad()
+        : <div className="grid grid-cols-2 gap-2 md:gap-5 sm:grid-cols-3 lg:grid-cols-4">
+						{searchingItem.map((obj) => (
+							<ItemSneakers
                 addItemToCart={addItemToCart}
                 addItemToFavorits={addItemToFavorits}
                 key={obj.id}
                 {...obj}
               />
-            ))}
-      </div>
-    </div>
+							))}
+					</div>
+			}
+      </>
   );
 };
 
